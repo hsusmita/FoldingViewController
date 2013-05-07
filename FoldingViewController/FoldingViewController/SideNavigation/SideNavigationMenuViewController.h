@@ -13,7 +13,7 @@
 @interface SideNavigationMenuViewController :UIViewController
 @property(nonatomic, weak)id<SideNavigationMenuViewControllerDelegate> delegate;
 
-- (void)selectCellAtIndex:(int)index;
+-(void)selectCellAtIndex:(int)index;
 -(void)refreshView;
 @end
 
