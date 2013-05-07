@@ -20,7 +20,6 @@
 {
     // Configure the view for the selected state
     [super setSelected:selected animated:animated];
-    NSLog(@"cell selcted");
     _BgImageView.highlighted = selected;
     _iconImageView.highlighted = selected;
     
