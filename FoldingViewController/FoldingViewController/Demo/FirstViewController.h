@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  FirstViewController.h
 //  FoldingViewController
 //
 //  Created by hsusmita  on 07/05/13.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
+@interface FirstViewController : UIViewController
 
 @end

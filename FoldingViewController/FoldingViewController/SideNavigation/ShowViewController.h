@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  ShowViewController.h
 //  FoldingViewController
 //
 //  Created by hsusmita  on 07/05/13.
@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface ShowViewController : UIViewController
 
-@property (strong, nonatomic) UIWindow *window;
-
+- (void)addViewController:(UIViewController *)viewController;
 @end

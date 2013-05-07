@@ -17,7 +17,14 @@
 		698C6F001738CADF0014A8DF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 698C6EFF1738CADF0014A8DF /* Default@2x.png */; };
 		698C6F021738CADF0014A8DF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 698C6F011738CADF0014A8DF /* Default-568h@2x.png */; };
 		698C6F051738CADF0014A8DF /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 698C6F031738CADF0014A8DF /* MainStoryboard.storyboard */; };
-		698C6F081738CADF0014A8DF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 698C6F071738CADF0014A8DF /* ViewController.m */; };
+		698C6F5B1738CC3D0014A8DF /* ShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 698C6F511738CC3D0014A8DF /* ShowViewController.m */; };
+		698C6F5C1738CC3D0014A8DF /* SideNavigationContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 698C6F531738CC3D0014A8DF /* SideNavigationContainerViewController.m */; };
+		698C6F5D1738CC3D0014A8DF /* SideNavigationMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 698C6F551738CC3D0014A8DF /* SideNavigationMenuViewController.m */; };
+		698C6F5E1738CC3D0014A8DF /* SideNavigationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 698C6F571738CC3D0014A8DF /* SideNavigationTableViewCell.m */; };
+		698C6F5F1738CC3D0014A8DF /* SideNavigationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 698C6F581738CC3D0014A8DF /* SideNavigationTableViewCell.xib */; };
+		698C6F601738CC3D0014A8DF /* UIViewController+ContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 698C6F5A1738CC3D0014A8DF /* UIViewController+ContainerViewController.m */; };
+		698C6F641738CDD60014A8DF /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 698C6F631738CDD60014A8DF /* FirstViewController.m */; };
+		698C6F671738CDE20014A8DF /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 698C6F661738CDE20014A8DF /* SecondViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,8 +42,21 @@
 		698C6EFF1738CADF0014A8DF /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		698C6F011738CADF0014A8DF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		698C6F041738CADF0014A8DF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		698C6F061738CADF0014A8DF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		698C6F071738CADF0014A8DF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		698C6F501738CC3D0014A8DF /* ShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowViewController.h; sourceTree = "<group>"; };
+		698C6F511738CC3D0014A8DF /* ShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowViewController.m; sourceTree = "<group>"; };
+		698C6F521738CC3D0014A8DF /* SideNavigationContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideNavigationContainerViewController.h; sourceTree = "<group>"; };
+		698C6F531738CC3D0014A8DF /* SideNavigationContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideNavigationContainerViewController.m; sourceTree = "<group>"; };
+		698C6F541738CC3D0014A8DF /* SideNavigationMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideNavigationMenuViewController.h; sourceTree = "<group>"; };
+		698C6F551738CC3D0014A8DF /* SideNavigationMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideNavigationMenuViewController.m; sourceTree = "<group>"; };
+		698C6F561738CC3D0014A8DF /* SideNavigationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideNavigationTableViewCell.h; sourceTree = "<group>"; };
+		698C6F571738CC3D0014A8DF /* SideNavigationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideNavigationTableViewCell.m; sourceTree = "<group>"; };
+		698C6F581738CC3D0014A8DF /* SideNavigationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideNavigationTableViewCell.xib; sourceTree = "<group>"; };
+		698C6F591738CC3D0014A8DF /* UIViewController+ContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ContainerViewController.h"; sourceTree = "<group>"; };
+		698C6F5A1738CC3D0014A8DF /* UIViewController+ContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ContainerViewController.m"; sourceTree = "<group>"; };
+		698C6F621738CDD60014A8DF /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FirstViewController.h; path = Demo/FirstViewController.h; sourceTree = "<group>"; };
+		698C6F631738CDD60014A8DF /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FirstViewController.m; path = Demo/FirstViewController.m; sourceTree = "<group>"; };
+		698C6F651738CDE20014A8DF /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		698C6F661738CDE20014A8DF /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,11 +103,8 @@
 		698C6EF11738CADF0014A8DF /* FoldingViewController */ = {
 			isa = PBXGroup;
 			children = (
-				698C6EFA1738CADF0014A8DF /* AppDelegate.h */,
-				698C6EFB1738CADF0014A8DF /* AppDelegate.m */,
-				698C6F031738CADF0014A8DF /* MainStoryboard.storyboard */,
-				698C6F061738CADF0014A8DF /* ViewController.h */,
-				698C6F071738CADF0014A8DF /* ViewController.m */,
+				698C6F611738CDAC0014A8DF /* Demo */,
+				698C6F4F1738CC3D0014A8DF /* SideNavigation */,
 				698C6EF21738CADF0014A8DF /* Supporting Files */,
 			);
 			path = FoldingViewController;
@@ -105,6 +122,38 @@
 				698C6F011738CADF0014A8DF /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		698C6F4F1738CC3D0014A8DF /* SideNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				698C6F501738CC3D0014A8DF /* ShowViewController.h */,
+				698C6F511738CC3D0014A8DF /* ShowViewController.m */,
+				698C6F521738CC3D0014A8DF /* SideNavigationContainerViewController.h */,
+				698C6F531738CC3D0014A8DF /* SideNavigationContainerViewController.m */,
+				698C6F541738CC3D0014A8DF /* SideNavigationMenuViewController.h */,
+				698C6F551738CC3D0014A8DF /* SideNavigationMenuViewController.m */,
+				698C6F561738CC3D0014A8DF /* SideNavigationTableViewCell.h */,
+				698C6F571738CC3D0014A8DF /* SideNavigationTableViewCell.m */,
+				698C6F581738CC3D0014A8DF /* SideNavigationTableViewCell.xib */,
+				698C6F591738CC3D0014A8DF /* UIViewController+ContainerViewController.h */,
+				698C6F5A1738CC3D0014A8DF /* UIViewController+ContainerViewController.m */,
+			);
+			path = SideNavigation;
+			sourceTree = "<group>";
+		};
+		698C6F611738CDAC0014A8DF /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				698C6F031738CADF0014A8DF /* MainStoryboard.storyboard */,
+				698C6F621738CDD60014A8DF /* FirstViewController.h */,
+				698C6F631738CDD60014A8DF /* FirstViewController.m */,
+				698C6F651738CDE20014A8DF /* SecondViewController.h */,
+				698C6F661738CDE20014A8DF /* SecondViewController.m */,
+				698C6EFA1738CADF0014A8DF /* AppDelegate.h */,
+				698C6EFB1738CADF0014A8DF /* AppDelegate.m */,
+			);
+			name = Demo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +212,7 @@
 				698C6F001738CADF0014A8DF /* Default@2x.png in Resources */,
 				698C6F021738CADF0014A8DF /* Default-568h@2x.png in Resources */,
 				698C6F051738CADF0014A8DF /* MainStoryboard.storyboard in Resources */,
+				698C6F5F1738CC3D0014A8DF /* SideNavigationTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,7 +225,13 @@
 			files = (
 				698C6EF81738CADF0014A8DF /* main.m in Sources */,
 				698C6EFC1738CADF0014A8DF /* AppDelegate.m in Sources */,
-				698C6F081738CADF0014A8DF /* ViewController.m in Sources */,
+				698C6F5B1738CC3D0014A8DF /* ShowViewController.m in Sources */,
+				698C6F5C1738CC3D0014A8DF /* SideNavigationContainerViewController.m in Sources */,
+				698C6F5D1738CC3D0014A8DF /* SideNavigationMenuViewController.m in Sources */,
+				698C6F5E1738CC3D0014A8DF /* SideNavigationTableViewCell.m in Sources */,
+				698C6F601738CC3D0014A8DF /* UIViewController+ContainerViewController.m in Sources */,
+				698C6F641738CDD60014A8DF /* FirstViewController.m in Sources */,
+				698C6F671738CDE20014A8DF /* SecondViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

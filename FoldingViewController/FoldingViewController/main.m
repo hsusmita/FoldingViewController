@@ -2,7 +2,7 @@
 //  main.m
 //  FoldingViewController
 //
-//  Created by devmac46  on 07/05/13.
+//  Created by hsusmita  on 07/05/13.
 //  Copyright (c) 2013 hsusmita. All rights reserved.
 //
 

@@ -2,16 +2,25 @@
 //  AppDelegate.m
 //  FoldingViewController
 //
-//  Created by devmac46  on 07/05/13.
+//  Created by hsusmita on 07/05/13.
 //  Copyright (c) 2013 hsusmita. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import "FirstViewController.h"
+#import "SecondViewController.h"
+#import "SideNavigationContainerViewController.h"
+
+@interface  AppDelegate ()
+@property (nonatomic,strong)SideNavigationContainerViewController *containerViewController;
+@end
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self setupContainerController];
+    self.window.rootViewController = self.containerViewController;
     // Override point for customization after application launch.
     return YES;
 }
@@ -41,6 +50,26 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+- (void)setupContainerController {
+    
+    self.containerViewController = [[SideNavigationContainerViewController alloc]init];
+    UIStoryboard * navStoryboard  =
+    [UIStoryboard storyboardWithName:@"MainStoryboard"
+                              bundle:[NSBundle mainBundle]];
+    FirstViewController * firstViewController =
+    [navStoryboard instantiateViewControllerWithIdentifier:@"first"];
+    
+    SecondViewController * secondViewController =
+    [navStoryboard instantiateViewControllerWithIdentifier:@"second"];
+    
+    
+    NSArray *displayinVCs = [NSArray arrayWithObjects:
+                             firstViewController,
+                             secondViewController,
+                             nil];
+    [self.containerViewController setDisplayingControllers:displayinVCs];
+    self.containerViewController.selectedIndex = 0;    
 }
 
 @end
