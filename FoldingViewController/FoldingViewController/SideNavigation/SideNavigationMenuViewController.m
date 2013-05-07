@@ -7,7 +7,7 @@
 
 #import "SideNavigationMenuViewController.h"
 #import "SideNavigationTableViewCell.h"
-
+#import "Configurations.h"
 
 #define kCellHeight 71.0
 #define kTableViewWidth 78.0
@@ -93,7 +93,8 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section {
     
-    return 2;
+    return [[Configurations sharedInstance].sideNavigationConfig.sideMenuItems count];
+
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -103,7 +104,10 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (!cell) {
         cell = [SideNavigationTableViewCell cell];
     }
-    [cell setupCell:cell AtIndexpath:indexPath];
+//    [cell setupCell:cell AtIndexpath:indexPath];
+    SideMenuItem *sideMenuItem = (SideMenuItem*)
+                [[Configurations sharedInstance].sideNavigationConfig.sideMenuItems objectAtIndex:indexPath.row];
+    [cell setupCellForSideMenuItem:sideMenuItem];
     return cell;
 }
 

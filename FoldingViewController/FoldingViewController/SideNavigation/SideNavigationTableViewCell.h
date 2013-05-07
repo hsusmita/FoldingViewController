@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SideNavigation.h"
 
 @interface SideNavigationTableViewCell : UITableViewCell
+
 + (SideNavigationTableViewCell *)cell ;
 - (void)setupCell:(UITableViewCell *)cell AtIndexpath:(NSIndexPath *)indexPath;
+- (void)setupCellForSideMenuItem:(SideMenuItem*)sideMenuItem;
+
 @end

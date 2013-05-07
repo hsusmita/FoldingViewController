@@ -46,4 +46,9 @@
 - (void)setupCell:(UITableViewCell *)cell AtIndexpath:(NSIndexPath *)indexPath {
     [cell.textLabel setText:@"hello"];
  }
+- (void)setupCellForSideMenuItem:(SideMenuItem*)sideMenuItem
+{
+    [self.iconImageView setImage:sideMenuItem.defaultBGImage];
+    [self.iconImageView setHighlightedImage:sideMenuItem.selectedBGImage];
+}
 @end
