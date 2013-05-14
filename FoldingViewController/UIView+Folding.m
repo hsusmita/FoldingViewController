@@ -47,17 +47,16 @@ static FoldingTransitionState currentState = FoldingTransitionStateIdle;
 
 
 @interface UIView (folding)
-
-
 @end
 
-
 @implementation UIView (Folding)
+
 
 FoldingDirection foldingDirection;
 CGRect selfFrame;
 CGPoint startPoint;
 CGPoint endPoint;
+CALayer *foldingLayer;
 
 -(void)unfoldView:(UIView *)view
            withNumberOfFolds:(NSInteger)folds
@@ -124,10 +123,9 @@ CGPoint endPoint;
 		if (completion)
 			completion(YES);
     }];
+    */
     
-    [CATransaction setValue:[NSNumber numberWithFloat:duration]
-                     forKey:kCATransactionAnimationDuration];*/
-    
+    [self showFoldingAnimationForView:view];
     [CATransaction begin];
     [CATransaction setCompletionBlock:^{
         self.frame = selfFrame;
@@ -135,7 +133,9 @@ CGPoint endPoint;
 		if (completion)
 			completion(YES);
     }];
-    
+    [CATransaction setValue:[NSNumber numberWithFloat:duration]
+                     forKey:kCATransactionAnimationDuration];
+
     //  Add Translation animation
     CGPoint start = (foldingDirection<2)?
     CGPointMake(self.frame.origin.x+self.frame.size.width/2,self.frame.origin.y):
@@ -149,7 +149,6 @@ CGPoint endPoint;
                       toPosition:end
                     withFunction:openFunction
                      forDuration:duration];
-//     [self.layer removeAnimationForKey:@"position"];
     [CATransaction commit];
   
 }
@@ -207,7 +206,6 @@ CGPoint endPoint;
                  withFunction:(KeyframeParametricBlock)block
                   forDuration:(float)duration
 {
-    NSLog(@"start = %f end = %f",start.x,end.x);
     CAAnimation *openAnimation = (direction < 2)?[CAKeyframeAnimation animationWithKeyPath:@"position.x" function:block fromValue:start.x toValue:end.x]:[CAKeyframeAnimation animationWithKeyPath:@"position.y" function:block fromValue:start.y toValue:end.y];
     
     openAnimation.fillMode = kCAFillModeForwards;
@@ -272,5 +270,40 @@ CGPoint endPoint;
             
     }
     return viewFrame;
+}
+
+-(CGPoint)anchorPointForDirection:(FoldingDirection)direction
+{
+    CGPoint anchorPoint;
+    switch (direction) {
+        case FoldingDirectionFromLeft:
+            anchorPoint = CGPointMake(0, 0.5);
+            break;
+        case FoldingDirectionFromRight:
+            anchorPoint = CGPointMake(1, 0.5);
+            break;
+        case FoldingDirectionFromTop:
+            anchorPoint = CGPointMake(0.5, 0);
+            break;
+        case FoldingDirectionFromBottom:
+            anchorPoint = CGPointMake(0.5, 1);
+            break;
+            
+    }
+    return anchorPoint;
+}
+
+-(void)showFoldingAnimationForView:(UIView*)view
+{
+    //set 3D depth (Add perspective transformation)
+    CATransform3D transform = CATransform3DIdentity;
+    transform.m34 = -1.0/800.0;
+    foldingLayer = [CALayer layer];
+    foldingLayer.frame = view.bounds;
+//    foldingLayer.backgroundColor = [UIColor colorWithWhite:0.2 alpha:1].CGColor;
+    foldingLayer.backgroundColor = [UIColor clearColor].CGColor;
+    foldingLayer.sublayerTransform = transform;
+    [view.layer addSublayer:foldingLayer];
+    
 }
 @end

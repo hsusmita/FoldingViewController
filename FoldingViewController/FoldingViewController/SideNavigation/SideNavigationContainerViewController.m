@@ -114,7 +114,7 @@ typedef void (^animationCompletionBlock)();
      postNotificationName:kContainerControllerWillHideMenu
      object:self];
     
-    [UIView animateWithDuration:0.5 animations:^{
+   /* [UIView animateWithDuration:0.5 animations:^{
         CGRect rect = self.showContainerView.frame;
         rect.origin.x = 0.0;
         self.showContainerView.frame = rect;
@@ -124,9 +124,9 @@ typedef void (^animationCompletionBlock)();
         [[NSNotificationCenter defaultCenter]
          postNotificationName:kContainerControllerDidHideMenu
          object:self];
-    }];
+    }];*/
     
-   /* [self.showContainerView unfoldView:self.menuContainerView
+ [self.showContainerView unfoldView:self.menuContainerView
                                 withNumberOfFolds:1
                                       forDuration:1
                                     withDirection:FoldingDirectionFromLeft
@@ -136,7 +136,7 @@ typedef void (^animationCompletionBlock)();
                                            [[NSNotificationCenter defaultCenter]
                                             postNotificationName:kContainerControllerDidHideMenu
                                             object:self];
-                                       }];*/
+                                       }];
     
 }
 -(void)refreshSideTableView
@@ -157,7 +157,7 @@ typedef void (^animationCompletionBlock)();
      postNotificationName:kContainerControllerWillHideMenu
      object:self];
     
-    [UIView animateWithDuration:animationDuration animations:^{
+   /* [UIView animateWithDuration:animationDuration animations:^{
         CGRect rect = self.showContainerView.frame;
         rect.origin.x = 0;
         self.showContainerView.frame = rect;
@@ -166,9 +166,9 @@ typedef void (^animationCompletionBlock)();
         [[NSNotificationCenter defaultCenter]
          postNotificationName:kContainerControllerDidHideMenu
          object:self];
-    }];
+    }];*/
     
-   /* [self.menuContainerView foldView:self.showContainerView withNumberOfFolds:1
+   [self.showContainerView foldView:self.menuContainerView withNumberOfFolds:1
                          forDuration:1
                        withDirection:FoldingDirectionFromLeft
                           completion:^(BOOL finished){
@@ -177,7 +177,7 @@ typedef void (^animationCompletionBlock)();
                                postNotificationName:kContainerControllerDidHideMenu
                                object:self];
 
-     }];*/
+     }];
 }
 - (void)showMenuAnimated:(BOOL)animated {
     CGFloat animationDuration = 0.0;
@@ -189,7 +189,7 @@ typedef void (^animationCompletionBlock)();
      postNotificationName:kContainerControllerWillShowMenu
      object:self];
     
-    [UIView animateWithDuration:animationDuration animations:^{
+   /* [UIView animateWithDuration:animationDuration animations:^{
         CGRect rect = self.showContainerView.frame;
         rect.origin.x = 78.0;
         self.showContainerView.frame = rect;
@@ -198,9 +198,9 @@ typedef void (^animationCompletionBlock)();
         [[NSNotificationCenter defaultCenter]
          postNotificationName:kContainerControllerDidShowMenu
          object:self];
-    }];
+    }];*/
     
- /*   [self.showContainerView unfoldView:self.menuContainerView
+    [self.showContainerView unfoldView:self.menuContainerView
                                 withNumberOfFolds:1
                                       forDuration:1
                                     withDirection:FoldingDirectionFromLeft
@@ -209,7 +209,7 @@ typedef void (^animationCompletionBlock)();
                                            [[NSNotificationCenter defaultCenter]
                                             postNotificationName:kContainerControllerDidShowMenu
                                             object:self];
-                                       }];*/
+                                       }];
 
 }
 
