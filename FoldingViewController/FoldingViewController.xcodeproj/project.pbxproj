@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		696F34671742553E00BC0805 /* UIView+Folding.m in Sources */ = {isa = PBXBuildFile; fileRef = 696F34661742553E00BC0805 /* UIView+Folding.m */; };
 		698C6EEC1738CADF0014A8DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 698C6EEB1738CADF0014A8DF /* UIKit.framework */; };
 		698C6EEE1738CADF0014A8DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 698C6EED1738CADF0014A8DF /* Foundation.framework */; };
 		698C6EF01738CADF0014A8DF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 698C6EEF1738CADF0014A8DF /* CoreGraphics.framework */; };
@@ -40,6 +41,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		696F34651742553E00BC0805 /* UIView+Folding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Folding.h"; sourceTree = "<group>"; };
+		696F34661742553E00BC0805 /* UIView+Folding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Folding.m"; sourceTree = "<group>"; };
 		698C6EE71738CADF0014A8DF /* FoldingViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoldingViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		698C6EEB1738CADF0014A8DF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		698C6EED1738CADF0014A8DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -103,6 +106,8 @@
 		698C6EDC1738CADF0014A8DF = {
 			isa = PBXGroup;
 			children = (
+				696F34651742553E00BC0805 /* UIView+Folding.h */,
+				696F34661742553E00BC0805 /* UIView+Folding.m */,
 				698C6EF11738CADF0014A8DF /* FoldingViewController */,
 				698C6EEA1738CADF0014A8DF /* Frameworks */,
 				698C6EE81738CADF0014A8DF /* Products */,
@@ -300,6 +305,7 @@
 				698C6F671738CDE20014A8DF /* SecondViewController.m in Sources */,
 				698C6F6E1738D37A0014A8DF /* Configurations.m in Sources */,
 				698C6F701738D37A0014A8DF /* SideNavigation.m in Sources */,
+				696F34671742553E00BC0805 /* UIView+Folding.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,7 @@
 #import "SideNavigationContainerViewController.h"
 #import "SideNavigationMenuViewController.h"
 #import "ShowViewController.h"
+#import "UIView+Folding.h"
 
 NSString *const kContainerControllerWillShowMenu =
 @"kContainerControllerWillShowMenu";
@@ -64,7 +65,9 @@ typedef void (^animationCompletionBlock)();
     // Do any additional setup after loading the view.
     
     self.showContainerView = [[UIView alloc] initWithFrame:self.view.bounds];
-    self.menuContainerView = [[UIView alloc] initWithFrame:self.view.bounds];
+    
+    CGRect menuFrame =  CGRectMake(0, 0, 100, self.view.bounds.size.height);
+    self.menuContainerView = [[UIView alloc] initWithFrame:menuFrame];
     
     [self.view addSubview:self.menuContainerView];
     [self.view addSubview:self.showContainerView];
@@ -123,6 +126,18 @@ typedef void (^animationCompletionBlock)();
          object:self];
     }];
     
+   /* [self.showContainerView unfoldView:self.menuContainerView
+                                withNumberOfFolds:1
+                                      forDuration:1
+                                    withDirection:FoldingDirectionFromLeft
+                                       completion:^(BOOL finished){
+                                           menuViewVisible = NO;
+                                           [viewController didMoveToParentViewController:self.showViewController];
+                                           [[NSNotificationCenter defaultCenter]
+                                            postNotificationName:kContainerControllerDidHideMenu
+                                            object:self];
+                                       }];*/
+    
 }
 -(void)refreshSideTableView
 {
@@ -131,6 +146,7 @@ typedef void (^animationCompletionBlock)();
 
 #pragma mark --
 #pragma mark Changing Views
+
 - (void)hideMenuAnimated:(BOOL)animated {
     CGFloat animationDuration = 0.0;
     if (animated) {
@@ -151,6 +167,17 @@ typedef void (^animationCompletionBlock)();
          postNotificationName:kContainerControllerDidHideMenu
          object:self];
     }];
+    
+   /* [self.menuContainerView foldView:self.showContainerView withNumberOfFolds:1
+                         forDuration:1
+                       withDirection:FoldingDirectionFromLeft
+                          completion:^(BOOL finished){
+                              menuViewVisible = NO;
+                              [[NSNotificationCenter defaultCenter]
+                               postNotificationName:kContainerControllerDidHideMenu
+                               object:self];
+
+     }];*/
 }
 - (void)showMenuAnimated:(BOOL)animated {
     CGFloat animationDuration = 0.0;
@@ -172,6 +199,18 @@ typedef void (^animationCompletionBlock)();
          postNotificationName:kContainerControllerDidShowMenu
          object:self];
     }];
+    
+ /*   [self.showContainerView unfoldView:self.menuContainerView
+                                withNumberOfFolds:1
+                                      forDuration:1
+                                    withDirection:FoldingDirectionFromLeft
+                                       completion:^(BOOL finished){
+                                           menuViewVisible = YES;
+                                           [[NSNotificationCenter defaultCenter]
+                                            postNotificationName:kContainerControllerDidShowMenu
+                                            object:self];
+                                       }];*/
+
 }
 
 - (void)toggleMenuViewVisibilityAnimated:(BOOL)animated {
@@ -254,52 +293,5 @@ typedef void (^animationCompletionBlock)();
 {
     [self setSelectedIndex:0];
 }
-
-#pragma mark - AnimationCode
-//- (void)unfoldWithDuration:(float)animationDuration
-//       withCompletionBlock:(animationCompletionBlock)block
-//{
-//    [self.showContainerView showOrigamiTransitionWith:self.menuContainerView
-//                                    withNumberOfFolds:1
-//                                          forDuration:animationDuration
-//                                        withDirection:XYOrigamiDirectionFromLeft
-//                                           completion:^(BOOL finished){
-//                                               if(block)block();}];
-//}
-
-- (void)slideRightWithDuration:(float)animationDuration
-           withCompletionBlock:(animationCompletionBlock)block
-{
-    [UIView animateWithDuration:animationDuration animations:^{
-        CGRect rect = self.showContainerView.frame;
-        rect.origin.x = 78.0;
-        self.showContainerView.frame = rect;
-    } completion:^(BOOL finished) {
-        if(block)block();
-    }];
-}
-
-//- (void)foldWithDuration:(float)animationDuration
-//     withCompletionBlock:(animationCompletionBlock)block
-//{
-//    [self.showContainerView hideOrigamiTransitionWith:self.menuContainerView
-//                                    withNumberOfFolds:1
-//                                          forDuration:animationDuration
-//                                        withDirection:XYOrigamiDirectionFromLeft
-//                                           completion:^(BOOL finished){
-//                                               if(block)block();}];
-//}
-
-- (void)slideLeftWithDuration:(float)animationDuration
-          withCompletionBlock:(animationCompletionBlock)block
-{
-    [UIView animateWithDuration:animationDuration animations:^{
-        CGRect rect = self.showContainerView.frame;
-        rect.origin.x = 0;
-        self.showContainerView.frame = rect;
-    } completion:^(BOOL finished) {
-        if(block)block();
-        
-    }];}
 
 @end
