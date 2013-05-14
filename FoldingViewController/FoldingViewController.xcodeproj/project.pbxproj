@@ -36,6 +36,7 @@
 		698C6F7F1738D4D00014A8DF /* menu-2-normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 698C6F771738D4D00014A8DF /* menu-2-normal@2x.png */; };
 		698C6F801738D4D00014A8DF /* menu-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 698C6F781738D4D00014A8DF /* menu-2.png */; };
 		698C6F811738D4D00014A8DF /* menu-2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 698C6F791738D4D00014A8DF /* menu-2@2x.png */; };
+		698C6FA61738E5310014A8DF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 698C6FA41738E5020014A8DF /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,7 @@
 		698C6F771738D4D00014A8DF /* menu-2-normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-2-normal@2x.png"; sourceTree = "<group>"; };
 		698C6F781738D4D00014A8DF /* menu-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-2.png"; sourceTree = "<group>"; };
 		698C6F791738D4D00014A8DF /* menu-2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-2@2x.png"; sourceTree = "<group>"; };
+		698C6FA41738E5020014A8DF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				698C6FA61738E5310014A8DF /* QuartzCore.framework in Frameworks */,
 				698C6EEC1738CADF0014A8DF /* UIKit.framework in Frameworks */,
 				698C6EEE1738CADF0014A8DF /* Foundation.framework in Frameworks */,
 				698C6EF01738CADF0014A8DF /* CoreGraphics.framework in Frameworks */,
@@ -117,6 +120,7 @@
 		698C6EEA1738CADF0014A8DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				698C6FA41738E5020014A8DF /* QuartzCore.framework */,
 				698C6EEB1738CADF0014A8DF /* UIKit.framework */,
 				698C6EED1738CADF0014A8DF /* Foundation.framework */,
 				698C6EEF1738CADF0014A8DF /* CoreGraphics.framework */,
@@ -412,6 +416,7 @@
 				698C6F0D1738CADF0014A8DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
