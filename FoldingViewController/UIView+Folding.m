@@ -216,31 +216,18 @@ CALayer *foldingLayer;
 
 -(void) repositionSideView:(UIView*)view forDirection:(FoldingDirection)direction
 {
-    CGRect viewFrame;
+    CGRect viewFrame = view.frame;
+    
     switch (direction) {
-        case FoldingDirectionFromLeft:
-            viewFrame = CGRectMake(self.frame.origin.x,
-                                   self.frame.origin.y,
-                                   view.frame.size.width,
-                                   view.frame.size.height);
-            break;
         case FoldingDirectionFromRight:
-            viewFrame = CGRectMake(self.frame.origin.x+self.frame.size.width-view.frame.size.width,
-                                   self.frame.origin.y,
-                                   view.frame.size.width,
-                                   view.frame.size.height);
+            viewFrame.origin.x = self.frame.origin.x+self.frame.size.width-view.frame.size.width;
             break;
-        case FoldingDirectionFromTop:
-            viewFrame = CGRectMake(self.frame.origin.x,
-                                   self.frame.origin.y,
-                                   view.frame.size.width,
-                                   view.frame.size.height);
-            break;
+
         case FoldingDirectionFromBottom:
-            viewFrame = CGRectMake(self.frame.origin.x,
-                                   self.frame.origin.y+self.frame.size.height-view.frame.size.height,
-                                   view.frame.size.width,
-                                   view.frame.size.height);
+            viewFrame.origin.y =  self.frame.origin.y+self.frame.size.height-view.frame.size.height;
+            break;
+            
+        default:
             break;
             
     }
@@ -269,7 +256,7 @@ CALayer *foldingLayer;
 }
 
 - (CATransformLayer *)transformLayerFromImage:(UIImage *)image
-                                    withFrame:(CGRect)frame
+                                    withFrame:(CGRect)foldFrame
                                  withDuration:(CGFloat)duration
                               withAnchorPoint:(CGPoint)anchorPoint
                                withStartAngle:(double)start
@@ -294,23 +281,23 @@ CALayer *foldingLayer;
     
     if (anchorPoint.y == 0.5) {
        
-        layerHeight = frame.size.height;
+        layerHeight = foldFrame.size.height;
         if (anchorPoint.x == 0 ) //from left to right
         {
-            layerWidth = image.size.width - frame.origin.x;
-            jointLayerPosition = frame.origin.x ? CGPointMake(frame.size.width, frame.size.height/2):CGPointMake(0, frame.size.height/2);
+            layerWidth = image.size.width - foldFrame.origin.x;
+            jointLayerPosition = foldFrame.origin.x ? CGPointMake(foldFrame.size.width, foldFrame.size.height/2):CGPointMake(0, foldFrame.size.height/2);
 
         }
         else
         { //from right to left
-            layerWidth = frame.origin.x + frame.size.width;
-            jointLayerPosition = CGPointMake(layerWidth, frame.size.height/2);
+            layerWidth = foldFrame.origin.x + foldFrame.size.width;
+            jointLayerPosition = CGPointMake(layerWidth, foldFrame.size.height/2);
         }
               
         imageLayerPositionX = layerWidth*anchorPoint.x;
-        imageLayerPositionY = frame.size.height/2;
+        imageLayerPositionY = foldFrame.size.height/2;
               
-        index = frame.origin.x/frame.size.width;
+        index = foldFrame.origin.x/foldFrame.size.width;
         if (index%2) {
             
             shadowStartPoint = CGPointMake(0.5, 0);
@@ -324,22 +311,22 @@ CALayer *foldingLayer;
     }
     else{
         
-        layerWidth = frame.size.width;
+        layerWidth = foldFrame.size.width;
         if (anchorPoint.y == 0 ) //from top
         {
-            layerHeight = image.size.height - frame.origin.y;
-            jointLayerPosition = frame.origin.y?CGPointMake(frame.size.width/2, frame.size.height):CGPointMake(frame.size.width/2, 0);
+            layerHeight = image.size.height - foldFrame.origin.y;
+            jointLayerPosition = foldFrame.origin.y?CGPointMake(foldFrame.size.width/2, foldFrame.size.height):CGPointMake(foldFrame.size.width/2, 0);
         }
         else    //from bottom
         { 
-            layerHeight = frame.size.height + frame.origin.y;
-            jointLayerPosition = CGPointMake(frame.size.width/2, layerHeight);
+            layerHeight = foldFrame.size.height + foldFrame.origin.y;
+            jointLayerPosition = CGPointMake(foldFrame.size.width/2, layerHeight);
         }
         
-        imageLayerPositionX = frame.size.width/2;
+        imageLayerPositionX = foldFrame.size.width/2;
         imageLayerPositionY = layerHeight*anchorPoint.y;
         
-        index = frame.origin.y/frame.size.height;
+        index = foldFrame.origin.y/foldFrame.size.height;
         if (index%2) {
             
             shadowStartPoint = CGPointMake(0.5, 0);
@@ -356,13 +343,17 @@ CALayer *foldingLayer;
     jointLayer.anchorPoint = anchorPoint;
     jointLayer.frame = CGRectMake(0, 0, layerWidth, layerHeight);
     jointLayer.position =  jointLayerPosition;
+    
+    NSLog(@"Fold frame = %f %f %f %f",foldFrame.origin.x,foldFrame.origin.y,foldFrame.size.width,foldFrame.size.height);
+    NSLog(@"joint layer frame = %f %f %f %f",jointLayer.frame.origin.x,jointLayer.frame.origin.y,jointLayer.frame.size.width,jointLayer.frame.size.height);
+    NSLog(@"joint layer position = %f %f",jointLayerPosition.x,jointLayerPosition.y);
 
     //Configure Image Layer
-    imageLayer.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
+    imageLayer.frame = CGRectMake(0, 0, foldFrame.size.width, foldFrame.size.height);
     imageLayer.anchorPoint = anchorPoint;
     imageLayer.position = CGPointMake(imageLayerPositionX, imageLayerPositionY);
     [jointLayer addSublayer:imageLayer];
-    CGImageRef imageCrop = CGImageCreateWithImageInRect(image.CGImage, frame);
+    CGImageRef imageCrop = CGImageCreateWithImageInRect(image.CGImage, foldFrame);
     imageLayer.contents = (__bridge id)imageCrop;
     imageLayer.backgroundColor = [UIColor clearColor].CGColor;
 
@@ -474,7 +465,8 @@ CALayer *foldingLayer;
         else if(currentState == FoldingTransitionStateUpdateToHide)
             transLayer = [self transformLayerFromImage:image
                                              withFrame:imageFrame
-                                          withDuration:duration withAnchorPoint:anchorPoint
+                                          withDuration:duration
+                                       withAnchorPoint:anchorPoint
                                         withStartAngle:0
                                           withEndAngle:newAngle];
         [layerList addObject:transLayer];
