@@ -42,8 +42,9 @@
 							<object class="IBUIImageView" id="393608033">
 								<reference key="NSNextResponder" ref="262463615"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrameSize">{78, 71}</string>
+								<string key="NSFrameSize">{180, 71}</string>
 								<reference key="NSSuperview" ref="262463615"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="648264629"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -52,15 +53,17 @@
 							<object class="IBUIImageView" id="648264629">
 								<reference key="NSNextResponder" ref="262463615"/>
 								<int key="NSvFlags">301</int>
-								<string key="NSFrame">{{19, 15}, {39, 40}}</string>
+								<string key="NSFrame">{{71, 16}, {39, 40}}</string>
 								<reference key="NSSuperview" ref="262463615"/>
+								<reference key="NSWindow"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							</object>
 						</array>
-						<string key="NSFrameSize">{78, 70}</string>
+						<string key="NSFrameSize">{180, 65}</string>
 						<reference key="NSSuperview" ref="1059137630"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="393608033"/>
 						<string key="NSReuseIdentifierKey">_NS:11</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
@@ -74,15 +77,16 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
 				</array>
-				<string key="NSFrameSize">{78, 71}</string>
+				<string key="NSFrameSize">{180, 66}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="262463615"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-				<int key="IBUISelectionStyle">2</int>
+				<int key="IBUISelectionStyle">0</int>
 				<reference key="IBUIContentView" ref="262463615"/>
 				<string key="IBUIReuseIdentifier">SideNavigationCellIdentifier</string>
-				<real value="71" key="IBUIRowHeight"/>
+				<real value="66" key="IBUIRowHeight"/>
 			</object>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
@@ -160,7 +164,32 @@
 			<nil key="sourceID"/>
 			<int key="maxID">14</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes"/>
+		<object class="IBClassDescriber" key="IBDocument.Classes">
+			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<object class="IBPartialClassDescription">
+					<string key="className">SideNavigationTableViewCell</string>
+					<string key="superclassName">UITableViewCell</string>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="BgImageView">UIImageView</string>
+						<string key="iconImageView">UIImageView</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="BgImageView">
+							<string key="name">BgImageView</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="iconImageView">
+							<string key="name">iconImageView</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/SideNavigationTableViewCell.h</string>
+					</object>
+				</object>
+			</array>
+		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>

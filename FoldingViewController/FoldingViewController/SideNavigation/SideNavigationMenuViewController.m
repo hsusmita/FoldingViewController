@@ -54,7 +54,9 @@
 
 #pragma mark - Private Methods
 - (void) setupViews {
-    self.view.backgroundColor = [UIColor colorWithRed:42.0/255 green:42.0/255 blue:56.0/255 alpha:1.0];
+//    self.view.backgroundColor = [UIColor colorWithRed:42.0/255 green:42.0/255 blue:56.0/255 alpha:1.0];
+    
+    self.view.backgroundColor = [UIColor grayColor];
 }
 -(void)refreshView
 {
