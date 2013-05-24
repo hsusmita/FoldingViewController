@@ -11,8 +11,11 @@
 
 @interface SideNavigation : NSObject
 
+@property (nonatomic, readonly) NSArray *sideMenuItems;
+@property (nonatomic, readonly) float sideMenuOffset;
+
 - (id)initWithDetails:(NSDictionary *)configDetails;
-@property(nonatomic, readonly)NSArray *sideMenuItems;
+
 @end
 
 @interface SideMenuItem : NSObject

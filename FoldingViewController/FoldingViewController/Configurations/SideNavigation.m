@@ -9,6 +9,7 @@
 #import "SideNavigation.h"
                                                        
 #define kSideMenuItemsKey  @"menu-items-array"
+#define kSideMenuOffset    @"menu-offset"
 
 @implementation SideNavigation
 
@@ -19,6 +20,7 @@
 - (id)initWithDetails:(NSDictionary *)configDetails {
     if (self = [super init]) {
         
+       _sideMenuOffset = [[configDetails objectForKey:kSideMenuOffset] floatValue];
         NSArray *sideMenuItems = [configDetails objectForKey:kSideMenuItemsKey];
         NSMutableArray *allSideMenuItems = [NSMutableArray array];
         for (NSDictionary *itemInfo in sideMenuItems) {

@@ -8,6 +8,7 @@
 
 #import "Configurations.h"
 #define kSideNavigationKey  @"SideNavigation"
+#define kAnimationKey       @"Animation"
 
 @implementation Configurations
 
@@ -40,6 +41,7 @@ static Configurations * _sharedInstance = nil;
     _sideNavigationConfig =
     [[SideNavigation alloc] initWithDetails:[configurations objectForKey:
                                            kSideNavigationKey]];
+    _animationConfig = [[Animation alloc]initWithDetails:[configurations objectForKey:kAnimationKey]];
     
 }
 

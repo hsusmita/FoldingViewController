@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "SideNavigation.h"
+#import "Animation.h"
 
 @interface Configurations : NSObject
 
 + (Configurations *)sharedInstance;
 
-@property(nonatomic, readonly)SideNavigation *sideNavigationConfig;
+@property (nonatomic, readonly) SideNavigation *sideNavigationConfig;
+@property (nonatomic, readonly) Animation *animationConfig;
 
 @end

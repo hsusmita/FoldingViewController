@@ -38,6 +38,8 @@
 		698C6F801738D4D00014A8DF /* menu-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 698C6F781738D4D00014A8DF /* menu-2.png */; };
 		698C6F811738D4D00014A8DF /* menu-2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 698C6F791738D4D00014A8DF /* menu-2@2x.png */; };
 		698C6FA61738E5310014A8DF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 698C6FA41738E5020014A8DF /* QuartzCore.framework */; };
+		698F5479174F4BAF00D65564 /* Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 698F5478174F4BAF00D65564 /* Animation.m */; };
+		698F5487174F6A2700D65564 /* UIView+Sliding.m in Sources */ = {isa = PBXBuildFile; fileRef = 698F5486174F6A2700D65564 /* UIView+Sliding.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +88,10 @@
 		698C6F781738D4D00014A8DF /* menu-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-2.png"; sourceTree = "<group>"; };
 		698C6F791738D4D00014A8DF /* menu-2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-2@2x.png"; sourceTree = "<group>"; };
 		698C6FA41738E5020014A8DF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		698F5477174F4BAF00D65564 /* Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animation.h; sourceTree = "<group>"; };
+		698F5478174F4BAF00D65564 /* Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Animation.m; sourceTree = "<group>"; };
+		698F5485174F6A2700D65564 /* UIView+Sliding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Sliding.h"; path = "Sliding Animation/UIView+Sliding.h"; sourceTree = "<group>"; };
+		698F5486174F6A2700D65564 /* UIView+Sliding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Sliding.m"; path = "Sliding Animation/UIView+Sliding.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,8 +112,6 @@
 		698C6EDC1738CADF0014A8DF = {
 			isa = PBXGroup;
 			children = (
-				696F34651742553E00BC0805 /* UIView+Folding.h */,
-				696F34661742553E00BC0805 /* UIView+Folding.m */,
 				698C6EF11738CADF0014A8DF /* FoldingViewController */,
 				698C6EEA1738CADF0014A8DF /* Frameworks */,
 				698C6EE81738CADF0014A8DF /* Products */,
@@ -136,11 +140,13 @@
 		698C6EF11738CADF0014A8DF /* FoldingViewController */ = {
 			isa = PBXGroup;
 			children = (
-				698C6F681738D37A0014A8DF /* Configurations */,
 				698C6F611738CDAC0014A8DF /* Demo */,
+				698C6F681738D37A0014A8DF /* Configurations */,
+				698F5475174F376C00D65564 /* Folding Animation */,
 				698C6F4F1738CC3D0014A8DF /* SideNavigation */,
 				698C6EF21738CADF0014A8DF /* Supporting Files */,
 				698C6F711738D4D00014A8DF /* images */,
+				698F5488174F6A2D00D65564 /* Sliding Animation */,
 			);
 			path = FoldingViewController;
 			sourceTree = "<group>";
@@ -199,6 +205,8 @@
 				698C6F6B1738D37A0014A8DF /* Configurations.plist */,
 				698C6F6C1738D37A0014A8DF /* SideNavigation.h */,
 				698C6F6D1738D37A0014A8DF /* SideNavigation.m */,
+				698F5477174F4BAF00D65564 /* Animation.h */,
+				698F5478174F4BAF00D65564 /* Animation.m */,
 			);
 			path = Configurations;
 			sourceTree = "<group>";
@@ -216,6 +224,25 @@
 				698C6F791738D4D00014A8DF /* menu-2@2x.png */,
 			);
 			path = images;
+			sourceTree = "<group>";
+		};
+		698F5475174F376C00D65564 /* Folding Animation */ = {
+			isa = PBXGroup;
+			children = (
+				696F34651742553E00BC0805 /* UIView+Folding.h */,
+				696F34661742553E00BC0805 /* UIView+Folding.m */,
+			);
+			name = "Folding Animation";
+			path = ..;
+			sourceTree = "<group>";
+		};
+		698F5488174F6A2D00D65564 /* Sliding Animation */ = {
+			isa = PBXGroup;
+			children = (
+				698F5485174F6A2700D65564 /* UIView+Sliding.h */,
+				698F5486174F6A2700D65564 /* UIView+Sliding.m */,
+			);
+			name = "Sliding Animation";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,6 +333,8 @@
 				698C6F6E1738D37A0014A8DF /* Configurations.m in Sources */,
 				698C6F701738D37A0014A8DF /* SideNavigation.m in Sources */,
 				696F34671742553E00BC0805 /* UIView+Folding.m in Sources */,
+				698F5479174F4BAF00D65564 /* Animation.m in Sources */,
+				698F5487174F6A2700D65564 /* UIView+Sliding.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

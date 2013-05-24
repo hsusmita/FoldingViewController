@@ -344,9 +344,9 @@ CALayer *foldingLayer;
     jointLayer.frame = CGRectMake(0, 0, layerWidth, layerHeight);
     jointLayer.position =  jointLayerPosition;
     
-    NSLog(@"Fold frame = %f %f %f %f",foldFrame.origin.x,foldFrame.origin.y,foldFrame.size.width,foldFrame.size.height);
-    NSLog(@"joint layer frame = %f %f %f %f",jointLayer.frame.origin.x,jointLayer.frame.origin.y,jointLayer.frame.size.width,jointLayer.frame.size.height);
-    NSLog(@"joint layer position = %f %f",jointLayerPosition.x,jointLayerPosition.y);
+//    NSLog(@"Fold frame = %f %f %f %f",foldFrame.origin.x,foldFrame.origin.y,foldFrame.size.width,foldFrame.size.height);
+//    NSLog(@"joint layer frame = %f %f %f %f",jointLayer.frame.origin.x,jointLayer.frame.origin.y,jointLayer.frame.size.width,jointLayer.frame.size.height);
+//    NSLog(@"joint layer position = %f %f",jointLayerPosition.x,jointLayerPosition.y);
 
     //Configure Image Layer
     imageLayer.frame = CGRectMake(0, 0, foldFrame.size.width, foldFrame.size.height);

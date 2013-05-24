@@ -2,6 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Animation</key>
+	<dict>
+		<key>animation-style</key>
+		<integer>1</integer>
+		<key>animation-direction</key>
+		<integer>1</integer>
+		<key>animation-duration</key>
+		<integer>1</integer>
+	</dict>
 	<key>SideNavigation</key>
 	<dict>
 		<key>menu-items-array</key>
@@ -19,6 +28,8 @@
 				<string>menu-2.png</string>
 			</dict>
 		</array>
+		<key>menu-offset</key>
+		<integer>100</integer>
 	</dict>
 </dict>
 </plist>
