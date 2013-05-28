@@ -5,11 +5,11 @@
 	<key>Animation</key>
 	<dict>
 		<key>animation-style</key>
-		<integer>1</integer>
+		<integer>0</integer>
 		<key>animation-direction</key>
-		<integer>1</integer>
+		<integer>3</integer>
 		<key>animation-duration</key>
-		<integer>1</integer>
+		<integer>5</integer>
 	</dict>
 	<key>SideNavigation</key>
 	<dict>
@@ -29,7 +29,7 @@
 			</dict>
 		</array>
 		<key>menu-offset</key>
-		<integer>100</integer>
+		<integer>150</integer>
 	</dict>
 </dict>
 </plist>

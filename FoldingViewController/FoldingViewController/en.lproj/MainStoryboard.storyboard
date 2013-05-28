@@ -32,8 +32,8 @@
                         </subviews>
                         <color key="backgroundColor" red="0.86024603898816565" green="0.71906833728855879" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="4XT-mV-iHW" firstAttribute="top" secondItem="ZqP-ye-n3Y" secondAttribute="top" type="default" id="bEN-HC-Tnc"/>
-                            <constraint firstItem="4XT-mV-iHW" firstAttribute="leading" secondItem="ZqP-ye-n3Y" secondAttribute="leading" type="default" id="xMB-hw-2Q2"/>
+                            <constraint firstItem="4XT-mV-iHW" firstAttribute="top" secondItem="ZqP-ye-n3Y" secondAttribute="top" constant="256" id="BWn-aX-YZh"/>
+                            <constraint firstItem="4XT-mV-iHW" firstAttribute="leading" secondItem="ZqP-ye-n3Y" secondAttribute="leading" constant="131" id="Th8-Hn-zD0"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -69,8 +69,8 @@
                         </subviews>
                         <color key="backgroundColor" red="0.192917427" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="IeU-dP-4fF" firstAttribute="leading" secondItem="L4j-Cp-eei" secondAttribute="leading" type="default" id="cTO-T0-Yp4"/>
-                            <constraint firstItem="IeU-dP-4fF" firstAttribute="top" secondItem="L4j-Cp-eei" secondAttribute="top" type="default" id="rAj-zz-8Al"/>
+                            <constraint firstItem="IeU-dP-4fF" firstAttribute="centerX" secondItem="L4j-Cp-eei" secondAttribute="centerX" type="default" id="PAD-Ey-Vzz"/>
+                            <constraint firstItem="IeU-dP-4fF" firstAttribute="top" secondItem="L4j-Cp-eei" secondAttribute="top" constant="250" id="eo1-NZ-O3g"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -79,23 +79,6 @@
             <point key="canvasLocation" x="551" y="-436"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="FirstViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="buttonTapped:"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="SecondViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SecondViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="buttonTaped:"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

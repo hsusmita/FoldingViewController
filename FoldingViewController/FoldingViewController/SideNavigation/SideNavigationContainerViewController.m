@@ -78,12 +78,9 @@ typedef void (^animationCompletionBlock)();
     self.animationDuration = [Configurations sharedInstance].animationConfig.animationDuration;
 
     self.showContainerView = [[UIView alloc] initWithFrame:self.view.bounds];
-    float menuOffset = [Configurations sharedInstance].sideNavigationConfig.sideMenuOffset;
-    
-    CGRect menuFrame = (self.transitionDirection >1)?
-    CGRectMake(0, 0, self.view.bounds.size.width, menuOffset):CGRectMake(0, 0, menuOffset, self.view.bounds.size.height-20);
-    
-    self.menuContainerView = [[UIView alloc] initWithFrame:menuFrame];
+    self.menuContainerView = [[UIView alloc]init];
+    [self setFrameOfSideMenu];
+
     [self.view addSubview:self.menuContainerView];
     [self.view addSubview:self.showContainerView];
     
@@ -104,6 +101,41 @@ typedef void (^animationCompletionBlock)();
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+-(void)setFrameOfSideMenu
+{
+    CGRect menuFrame;
+    float menuOffset = [Configurations sharedInstance].sideNavigationConfig.sideMenuOffset;
+//    [self.showContainerView setHidden:YES];
+    switch (self.transitionDirection) {
+        case TransitionDirectionFromRight:
+            menuFrame = CGRectMake(self.view.bounds.size.width-menuOffset,
+                                   0,
+                                   menuOffset,
+                                   self.view.bounds.size.height);
+            break;
+        case TransitionDirectionFromLeft:
+            menuFrame = CGRectMake(0,
+                                   0,
+                                   menuOffset,
+                                   self.view.bounds.size.height);
+            break;
+        case TransitionDirectionFromTop:
+            menuFrame = CGRectMake(0,
+                                   0,
+                                   self.view.bounds.size.width,
+                                   menuOffset);
+            break;
+        case TransitionDirectionFromBottom:
+            menuFrame = CGRectMake(0,
+                                   self.view.bounds.size.height-menuOffset-25,
+                                   self.view.bounds.size.width,
+                                   menuOffset);
+            break;
+        default:
+            break;
+    }
+    [self.menuContainerView setFrame:menuFrame];
 }
 
 #pragma mark --
@@ -294,28 +326,6 @@ typedef void (^animationCompletionBlock)();
     self.selectedIndex = indexPath.row;
 }
 
--(void)setFrameOfSideMenu
-{
-    CGRect menuFrame;
-    float menuOffset = [Configurations sharedInstance].sideNavigationConfig.sideMenuOffset;
-    switch (self.transitionDirection) {
-        case TransitionDirectionFromRight:
-            menuFrame = CGRectMake(0, self.view.bounds.size.width-menuOffset, menuOffset, self.view.bounds.size.height);
-            break;
-        case TransitionDirectionFromLeft:
-            menuFrame = CGRectMake(0, 0, menuOffset, self.view.bounds.size.height);
-            break;
-        case TransitionDirectionFromTop:
-             menuFrame = CGRectMake(0, 0, self.view.bounds.size.width, menuOffset);
-            break;
-        case TransitionDirectionFromBottom:
-             menuFrame = CGRectMake(0, self.view.bounds.size.height-menuOffset, self.view.bounds.size.width, menuOffset);
-            break;
-        default:
-            break;
-    }
-    [self.menuContainerView setFrame:menuFrame];
-}
 -(void)showAnimationForDuration:(float)animationDuration
             withTransitionStyle:(TransitionAnimationStyle)style
                      completion:(animationCompletionBlock)block
@@ -325,33 +335,6 @@ typedef void (^animationCompletionBlock)();
             
         case TransitionAnimationStyleSliding:
         {
-//            [self setFrameOfSideMenu];
-//            [UIView animateWithDuration:animationDuration
-//                             animations:^{
-//                                 CGRect rect = self.showContainerView.frame;
-//                                 switch (self.transitionDirection) {
-//                                     case TransitionDirectionFromRight:
-//                                         rect.origin.x = -self.menuContainerView.frame.size.width;
-//                                         break;
-//                                     case TransitionDirectionFromLeft:
-//                                          rect.origin.x = self.menuContainerView.frame.size.width;
-//                                         break;
-//                                     case TransitionDirectionFromTop:
-//                                         rect.origin.y = self.menuContainerView.frame.size.height;
-//                                         break;
-//                                     case TransitionDirectionFromBottom:
-//                                         rect.origin.y = -self.menuContainerView.frame.size.height;
-//                                         break;
-//                                     default:
-//                                         break;
-//                                 }
-//                                 rect.origin.x = self.menuContainerView.frame.size.width;
-//                                 [self.showContainerView setFrame:rect];
-//                                }
-//
-//                             completion:^(BOOL finished) {
-//                                 if(block)block();
-//            }];
 
             [self.showContainerView slideInView:self.menuContainerView
                                     forDuration:self.animationDuration
