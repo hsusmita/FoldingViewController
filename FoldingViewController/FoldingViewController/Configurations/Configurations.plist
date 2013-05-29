@@ -7,9 +7,9 @@
 		<key>animation-style</key>
 		<integer>0</integer>
 		<key>animation-direction</key>
-		<integer>3</integer>
+		<integer>1</integer>
 		<key>animation-duration</key>
-		<integer>5</integer>
+		<integer>1</integer>
 	</dict>
 	<key>SideNavigation</key>
 	<dict>

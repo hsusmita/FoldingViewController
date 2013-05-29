@@ -142,11 +142,11 @@
 			children = (
 				698C6F611738CDAC0014A8DF /* Demo */,
 				698C6F681738D37A0014A8DF /* Configurations */,
+				698F5488174F6A2D00D65564 /* Sliding Animation */,
 				698F5475174F376C00D65564 /* Folding Animation */,
 				698C6F4F1738CC3D0014A8DF /* SideNavigation */,
 				698C6EF21738CADF0014A8DF /* Supporting Files */,
 				698C6F711738D4D00014A8DF /* images */,
-				698F5488174F6A2D00D65564 /* Sliding Animation */,
 			);
 			path = FoldingViewController;
 			sourceTree = "<group>";

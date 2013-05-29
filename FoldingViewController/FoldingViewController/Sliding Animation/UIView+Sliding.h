@@ -15,6 +15,27 @@ typedef enum {
     SlidingDirectionFromBottom    = 3,
 }SlidingDirection;
 
+typedef enum {
+    DraggingDirectionNone = 0,
+    DraggingDirectionToRight     = 1 << 1,
+	DraggingDirectionToLeft      = 1 << 2,
+    DraggingDirectionToTop       = 1 << 3,
+    DraggingDirectionToBottom    = 1 << 4,
+}DraggingDirection;
+
+//typedef enum {
+//    DraggingDirectionNone = 0,
+//    DraggingDirectionHorizontal    = 1 << 1,
+//	DraggingDirectionVertical      = 1 << 2,
+//}DraggingDirection;
+
+typedef enum {
+	DraggingTransitionStateIdle         = 0,
+	DraggingTransitionStateUpdateToShow = 1,
+    DraggingTransitionStateUpdateToHide = 2,
+	DraggingTransitionStateShow         = 3
+} DraggingTransitionState;
+
 @interface UIView (Sliding)
 
 - (void)slideInView:(UIView*)view
@@ -26,4 +47,8 @@ typedef enum {
           forDuration:(CGFloat)duration
         withDirection:(SlidingDirection)direction
            completion:(void (^)(BOOL finished))completion;
+
+- (void)enableDragForDirection:(DraggingDirection) dragDirection
+                  withSideView:(UIView*)view;
+
 @end

@@ -92,6 +92,29 @@ typedef void (^animationCompletionBlock)();
     
     [self.showViewController didMoveToParentViewController:self];
     [self.menuViewController didMoveToParentViewController:self];
+    
+    [self.showContainerView setUserInteractionEnabled:YES];
+    
+    if(self.transitionStyle == TransitionAnimationStyleSliding){
+        DraggingDirection direction;
+        switch (self.transitionDirection) {
+            case 0:
+                direction = DraggingDirectionToLeft;
+                break;
+            case 1:
+                direction = DraggingDirectionToRight;
+                break;
+            case 2:
+                direction = DraggingDirectionToTop;
+                break;
+            case 3:
+                direction = DraggingDirectionToBottom;
+                
+            default:
+                break;
+        }
+        [self.showContainerView enableDragForDirection:direction withSideView:self.menuContainerView];
+    }
 }
 - (void)loadView {
     self.view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
@@ -169,18 +192,6 @@ typedef void (^animationCompletionBlock)();
                              postNotificationName:kContainerControllerDidHideMenu
                              object:self];
                         }];
-    /*[self.showContainerView unfoldView:self.menuContainerView
-                                withNumberOfFolds:1
-                                      forDuration:1
-                                    withDirection:FoldingDirectionFromLeft
-                                       completion:^(BOOL finished){
-                                           menuViewVisible = NO;
-                                           [viewController didMoveToParentViewController:self.showViewController];
-                                           [[NSNotificationCenter defaultCenter]
-                                            postNotificationName:kContainerControllerDidHideMenu
-                                            object:self];
-                                       }];*/
-    
 }
 -(void)refreshSideTableView
 {
@@ -209,18 +220,6 @@ typedef void (^animationCompletionBlock)();
                              object:self];
                         }];
 
-    
-    
-   /*[self.showContainerView foldView:self.menuContainerView withNumberOfFolds:1
-                         forDuration:1
-                       withDirection:FoldingDirectionFromLeft
-                          completion:^(BOOL finished){
-                              menuViewVisible = NO;
-                              [[NSNotificationCenter defaultCenter]
-                               postNotificationName:kContainerControllerDidHideMenu
-                               object:self];
-
-     }];*/
 }
 - (void)showMenuAnimated:(BOOL)animated {
     CGFloat animationDuration = 0.0;
@@ -239,18 +238,6 @@ typedef void (^animationCompletionBlock)();
                              postNotificationName:kContainerControllerDidShowMenu
                              object:self];
                         }];
-
-     /*[self.showContainerView unfoldView:self.menuContainerView
-                                withNumberOfFolds:1
-                                      forDuration:1
-                                    withDirection:FoldingDirectionFromLeft
-                                       completion:^(BOOL finished){
-                                           menuViewVisible = YES;
-                                           [[NSNotificationCenter defaultCenter]
-                                            postNotificationName:kContainerControllerDidShowMenu
-                                            object:self];
-                                       }];*/
-
 }
 
 - (void)toggleMenuViewVisibilityAnimated:(BOOL)animated {
@@ -374,20 +361,7 @@ typedef void (^animationCompletionBlock)();
                                     {
                                         if(block)block();
                                     }];
-//            [UIView animateWithDuration:animationDuration
-//                             animations:^{
-//                                 CGRect rect = self.showContainerView.frame;
-//                                 
-//                                 if(self.transitionDirection >1)
-//                                     rect.origin.y = 0;
-//                                 else
-//                                     rect.origin.x = 0;
-//                                 self.showContainerView.frame = rect;
-//                            }
-//                             completion:^(BOOL finished) {
-//                                 if(block)block();
-//            }];
-//            
+        
             break;
         }
         case TransitionAnimationStyleFolding:
